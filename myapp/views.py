@@ -1,5 +1,4 @@
-from django.shortcuts import render
-import os 
+from django.shortcuts import render 
 import logging
 
 log = logging.getLogger('log')
