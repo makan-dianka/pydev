@@ -1,0 +1,84 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF TO AUDIO</title>
+    <!-- <link href="{% static 'css/main.css' %}" rel="stylesheet"> -->
+</head>
+<body>
+    {% block body %}
+    {% if request.user.is_authenticated %}
+        <div class="container">
+            <div class="col bg-warning mt-5 p-4 text-center text-danger">
+                <h1>PDF => AUDIO</h1>
+                <a href="/" class="text-black">Charger un pdf</a>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-6">
+                    {% if pdf_obj.status == True %}
+                        <p class="mt-5">{{ file_name }} <span class="text-success">[OK]</span></p>
+                    {% else %}
+                    <form method="POST" action="" enctype='multipart/form-data' class="mt-5"> {% csrf_token %}
+                        {{ file_name }}
+
+                        <button class="btn btn-success btn-text conv" type="submit">
+                            Convertir
+                            <span class="spinner" id="status-spinner" role="status" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                    {% endif %}
+
+                    <button class="btn btn-danger mt-5 sp-box" type="button" disabled>
+                        <span class="patienter" role="status" aria-hidden="true"></span>
+                        audio en cours...
+                    </button>
+
+                    <audio controls class="mt-5 w-5" id="audio"> 
+                        <source src="/media/audio/{{ audio }}.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+
+                <div class="col-md-6">
+                    
+                    <h3 class="mt-5">Historique</h3>
+                    <p>{{ audios|length }} éléments</p> 
+                    {% for audio in audios %}
+                        
+                        <audio controls class="mt-5 w-5" id="audio">
+                            <source src="/{{ audio.audio }}" type="audio/mp3">
+                        </audio>
+                        <br />
+                        <a href='/media/{{ audio.pdf }}'>{{ audio.pdf }}</a> 
+                        {{ audio.pdf.langue }} <br />
+                        {{ audio.create_at }}
+                        {{ audio.pdf.owner }} 
+                        <img src="{% static 'media/img/delete_icon.png' %}" width="20" height="20" />
+                        <hr class="hr"/> 
+                        <br /> <br />
+                    {% endfor %}
+                </div>
+            </div>
+            
+        </div>
+    {%  else %}
+    <div class="container">
+        <div class="col bg-warning mt-5 p-2 text-center text-danger">
+            <h5><a href="#">Connectez-vous</a> pour convertir vos document pdf en audio</h5>
+        </div>
+    </div>
+    {% endif %}
+    <script src="{%  static 'js/main.js' %}"></script>
+
+    <script>
+        let user = '{{request.user.id}}'
+        document.querySelector('#owner').value = user
+    </script>
+    {% endblock %}
+
+</body>
+</html>

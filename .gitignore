@@ -5,3 +5,5 @@ myproject/__pycache__/*
 myapp/migrations/__pycache__/*
 log/*
 .myvenv/*
+media/*
+static/*

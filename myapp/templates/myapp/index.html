@@ -1,12 +1,50 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my django app</title>
+    <title>Convertisseur</title>
 </head>
 <body>
-    <h1>Hello world !</h1>
+    {% block body %}
+    <div class="container">
+            {% if request.user.is_authenticated %}
+                <div class="bg-warning mt-5 p-4 text-center text-danger">
+                    <h1>Charger un document</h1>
+                    {% if last_audio.id %}
+                    <a href="/pdf/{{ last_audio.id }}" class="text-black">mes audio</a>
+                    {% endif %}
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="mt-5 help-texte">écoutez vos pdf en podcast. Plus besoin de lire sur papier. Charger vos pdf, nous les convertirons en audio. séléctionnez la langue de votre pdf et chargez-la.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <form method="POST" action="" enctype='multipart/form-data' class="mt-5"> {% csrf_token %}
+                            {{ form|crispy }} <br />
+                            <button type="submit" class="btn btn-success conv" id="hidde-conv">Charger</button>
+                        </form>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            {%  else %}
+                <div class="bg-warning mt-5 p-2 text-center text-danger">
+                    <h5><a href="#">Connectez-vous</a> pour convertir vos document pdf en audio</h5>
+                </div>
+            {% endif %}
+    </div>
+
+
+    <script>
+        let user = '{{request.user.id}}'
+        document.querySelector('#owner').value = user
+    </script>
+    {% endblock %}
+
 </body>
 </html>
