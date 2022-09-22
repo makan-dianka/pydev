@@ -16,7 +16,7 @@ Ce projet est entièrement concu avec python/django et quelques javascript. <br 
 - Connaître la structure de framework django est obligatoire.
 
 ## Pour tester ce projet sur votre bécane, proceder comme suite:
-
+# Ouvrez votre terminal et executer 
 - optionnel : Vous pouvez créer une environnement virtuel, mais c'est pas obligatoire. Pour créer et activer un venv <a href="https://docs.python.org/fr/3/library/venv.html">visiter ici</a>
 
 ```git clone https://github.com/makan-dianka/pydev.git```
