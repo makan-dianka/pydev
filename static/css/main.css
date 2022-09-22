@@ -1,0 +1,40 @@
+#home{
+    background-color: whitesmoke;
+}
+
+.sp-box{
+    display: none;
+}
+
+#lang-space{
+    margin-bottom: 25px;
+}
+
+.charger{
+    float: right;
+}
+
+.hr {
+    width: 350px;
+}
+
+.help-texte{
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px, solid, black;
+    color: green;
+}
+
+h1{
+    color: blue;
+}
+
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
+    color: white;
+    text-align: center;
+  }
