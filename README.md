@@ -30,10 +30,11 @@ Ce projet est entièrement concu avec python/django et quelques javascript. <br 
 
 ```python manage.py migrate```
 
-démarrer le serveur avec la commande suivante
+Créer un superuser, tapez cette commande ```python manage.py createsuperuser```  et renseigner les informations demandé.
 
-```python manage.py runserver```
+démarrer le serveur avec la commande suivante ```python manage.py runserver```
 
+par défaut le serveur de django écoute sur le port ```8000```
 rendez-vous dans le navigateur tapez ```localhost:8000``` ou ```127.0.0.1:8000``` 
 
 ## ET voilà ! 
