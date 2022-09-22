@@ -6,6 +6,9 @@ Cet application convertit le document pdf en audio mp3. vous pouvez écouter l'a
 
 Ce projet est entièrement concu avec python/django et quelques javascript. <br />
  Tous les dependances sont dans le fichier ```PipeFile``` ou ```requirements.txt```
+ 
+ ## Requirements
+ - Ce projet requiert l'interpreteur python. Si vous n'avez pas python installé dans votre bécane, <a href="https://www.python.org/">rendez-vous ici</a> pour l'obtenir
 
 ## kills Required
 
