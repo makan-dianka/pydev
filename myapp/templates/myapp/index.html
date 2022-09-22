@@ -15,8 +15,8 @@
             {% if request.user.is_authenticated %}
                 <div class="bg-warning mt-5 p-4 text-center text-danger">
                     <h1>Charger un document</h1>
-                    {% if last_audio.id %}
-                    <a href="/pdf/{{ last_audio.id }}" class="text-black">mes audio</a>
+                    {% if last_audio.last.id %}
+                    <a href="/pdf/{{ last_audio.last.id }}" class="text-black">mes audio</a>
                     {% endif %}
                 </div>
 

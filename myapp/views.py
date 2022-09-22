@@ -10,7 +10,8 @@ log = logging.getLogger('log')
 
 def index(request):
     log.error("Message for error")
-    pdf_obj = Pdf.objects.filter(owner=request.user).last()
+    pdf_obj = Pdf.objects.filter(owner=request.user.id)
+    
     if request.method=="POST": 
         form = PdfForm(request.POST, request.FILES)
         if form.is_valid:
