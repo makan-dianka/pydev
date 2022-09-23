@@ -57,3 +57,9 @@ def audio(request, id):
         return redirect(f'/pdf/{pdf_obj.id}')
     context = {'file_name': file_name_with_extension, 'pdf_obj':pdf_obj, 'audio':file_name, 'audios':audios}
     return render(request, 'myapp/audio.html', context)
+
+
+def delete(request, id):
+    obj = PdfToAudio.objects.get(id=id)
+    obj.delete()
+    return redirect('/')

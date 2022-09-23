@@ -29,7 +29,7 @@ class PdfAdmin(admin.ModelAdmin):
     
 # Audio
 class PdfToAudio(models.Model):
-    pdf = models.ForeignKey(Pdf, on_delete=models.DO_NOTHING)
+    pdf = models.ForeignKey(Pdf, on_delete=models.CASCADE)
     audio = models.FileField(upload_to="audio")
     owner = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=1)
     status = models.BooleanField(default=False)

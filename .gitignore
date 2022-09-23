@@ -3,6 +3,7 @@ db.sqlite3
 myapp/__pycache__/*
 myproject/__pycache__/*
 myapp/migrations/__pycache__/*
+myapp/migrations/*
 log/*.log
 .myvenv/*
 media/audio/*.mp3
@@ -10,3 +11,4 @@ media/pdf/*.pdf
 static/media/pdf_local/*pdf
 accounts/__pycache__/*
 accounts/migrations/__pycache__/*
+accounts/migrations/*

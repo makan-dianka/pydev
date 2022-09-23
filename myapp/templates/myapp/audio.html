@@ -57,7 +57,7 @@
                         {{ audio.pdf.langue }} <br />
                         {{ audio.create_at }}
                         {{ audio.pdf.owner }} 
-                        <img src="{% static 'media/img/delete_icon.png' %}" width="20" height="20" />
+                        <a href="{% url 'myapp:remove' audio.id %}"><img src="{% static 'media/img/delete_icon.png' %}" width="20" height="20" /></a>
                         <hr class="hr"/> 
                         <br /> <br />
                     {% endfor %}
