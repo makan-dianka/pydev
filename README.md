@@ -35,7 +35,7 @@ Créer un superuser, tapez cette commande ```python manage.py createsuperuser```
 démarrer le serveur avec la commande suivante ```python manage.py runserver```
 
 par défaut le serveur de django écoute sur le port ```8000```
-rendez-vous dans le navigateur tapez ```localhost:8000``` ou ```127.0.0.1:8000``` 
+rendez-vous dans le navigateur tapez ```localhost:8000``` ou ```127.0.0.1:8000```  puis connecter vous
 
 ## ET voilà ! 
 
