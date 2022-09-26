@@ -1,14 +1,15 @@
-# .env
+# pydev/.env
 db.sqlite3
-myapp/__pycache__/*
-myproject/__pycache__/*
-myapp/migrations/__pycache__/*
-myapp/migrations/*
-log/*.log
-.myvenv/*
-media/audio/*.mp3
-media/pdf/*.pdf
-static/media/pdf_local/*pdf
-accounts/__pycache__/*
-accounts/migrations/__pycache__/*
-accounts/migrations/*
+pydev/myapp/__pycache__/*
+pydev/myproject/__pycache__/*
+pydev/myapp/migrations/__pycache__/*
+pydev/myapp/migrations/*
+pydev/log/*.log
+pydev/.myvenv/*
+pydev/media/audio/*.mp3
+pydev/media/pdf/*.pdf
+pydev/static/media/pdf_local/*pdf
+pydev/accounts/__pycache__/*
+pydev/accounts/migrations/__pycache__/*
+pydev/accounts/migrations/*
+proxy/

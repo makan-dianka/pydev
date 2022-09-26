@@ -1,18 +1,26 @@
 #--------------------------------------
 #       Dockerfile de django
 #--------------------------------------
-FROM python:3.8
-#RUN apt-get update \ 
-   # && apt-get install git -y \
-    # ; apt-get install vim -y  \ 
-    # ; apt-get install nano -y
+FROM python:3.8-alpine
 
-WORKDIR /var/www/html/ 
-RUN echo "\n Work directory created ! \n"
-COPY . .
-RUN echo "\n Copy files from host to container  done ! \n"
-#RUN /bin/bash -c "source /var/www/html/.myvenv/bin/activate \
-			#&& pip install --upgrade pip \
-			#&& pip install -r requirements.txt"
-RUN pip install --upgrade pip
+ENV PATH="/scripts:${PATH}"
+COPY ./requirements.txt /requirements.txt
+RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers
 RUN pip install -r requirements.txt
+RUN apk del .tmp
+RUN mkdir /pydev
+COPY ./pydev /pydev
+WORKDIR /pydev
+COPY ./scripts /scripts
+
+RUN chmod +x /scripts/*
+
+RUN mkdir -p /vol/web/media
+RUN mkdir -p /vol/web/static
+
+RUN adduser -D user
+RUN chown -R user:user /vol
+RUN chmod -R 755 /vol/web
+USER user
+
+CMD ["entrepoint.sh"]
