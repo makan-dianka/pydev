@@ -1,6 +1,5 @@
 import PyPDF2
 from gtts import gTTS 
-import os 
 
 def handle_uploaded_file(f, n, ex):
     with open(f'static/media/pdf_local/{n}.{ex}', 'wb+') as destination:
@@ -21,5 +20,5 @@ def pdfReader(file):
 
 def text_to_audio(text, path, lang):
     objet = gTTS(text=text, lang=lang, slow=False)
-    test = objet.save(path)
+    objet.save(path)
     return path

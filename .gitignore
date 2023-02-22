@@ -13,3 +13,4 @@ pydev/accounts/__pycache__/*
 pydev/accounts/migrations/__pycache__/*
 pydev/accounts/migrations/*
 proxy/
+pydev/staticfiles

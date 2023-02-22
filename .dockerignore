@@ -1,0 +1,12 @@
+pydev/staticfiles
+docker-compose.yml
+Dockerfile
+
+pydev/accounts/__pycache__/*
+pydev/accounts/migrations/__pycache__/*
+
+pydev/myapp/__pycache__/*
+pydev/myapp/migrations/__pycache__/*
+
+pydev/myproject/__pycache__/*
+.gitignore
